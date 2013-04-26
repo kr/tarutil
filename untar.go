@@ -44,7 +44,7 @@ func ExtractAll(r io.Reader, root string, flag int) error {
 	tr := tar.NewReader(r)
 	for {
 		hdr, err1 := tr.Next()
-		if err == nil {
+		if err == nil && err1 != io.EOF {
 			err = err1
 		}
 		if err1 != nil {
